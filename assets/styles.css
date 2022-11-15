@@ -1,0 +1,128 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/*FRONT CARD DESIGN*/
+.card{
+    position: relative;
+    padding: 1%;
+    left: 10%;
+    height: auto;
+    width: 100%;
+}
+
+.logo{
+    position: absolute;
+    top: 12%;
+    left: 8%;
+}
+
+.front-card-numbers{
+    position: absolute;
+    bottom: 40%;
+    left: 8%;
+    font-size: 200%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.front-card-name{
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+    font-size: 150%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+}
+
+.front-card-date{
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    font-size: 150%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*BACK CARD DESIGN*/
+
+.cvv{
+    position: absolute;
+    bottom: 48%;
+    right: 20%;
+    font-size: 150%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.back-card{
+   padding: 80px;
+}
+
+/*TEXT INPUT*/
+
+.card-name{
+    z-index: 2;
+    padding: 2%;
+}
+
+.styled-text{
+    padding: 2%;
+    font-size: 140%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: hsl(278, 68%, 11%);
+}
+
+.input{
+    font-size: 150%;
+    border-radius: 5%;
+    padding: 3%;
+    width: 80%;
+    height: 30%;
+}
+
+.input-small{
+    font-size: 100%;
+    border-radius: 5%;
+    padding: 3%;
+    width: 20%;
+    height: 30%;
+}
+
+
+.input:focus{
+    color: hsl(279, 6%, 55%);
+    border: hsl(278, 68%, 11%)
+}
+
+.button{
+    margin: 10% 0 0 0;
+    width: 100%;
+    height: 10%;
+    border-radius: 10px;
+    font-size: 200%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+}
+
+.button:hover{
+    background-color: hsl(279, 22%, 25%);
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0;
+}
+
+/*ERRORS*/
+
+.error{
+    color:red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1vw;
+}
