@@ -13,7 +13,7 @@ const errorMessages = {
     date: 'Not a valid date',
 }
 
-//Error handling function
+//Error handling functions
 function errorHandling(errorMessage, elementId, messagesArr){
     messagesArr.push(errorMessage)
     var error = document.getElementById(elementId)
@@ -21,45 +21,59 @@ function errorHandling(errorMessage, elementId, messagesArr){
     error.innerText = messagesArr[index]
 }
 
+function deletingErrors(variable){
+    var error = document.getElementById(variable)
+    error.innerText = ''
+}
+
 //Submit event listener
 form.addEventListener('submit', (e) => {
-    let messages = []
-    let index
+        let messages = []
 
-    
-    
-   if(completeName.value === '' || cardNumber.value === '' || month.value === '' || year.value === '' || cvv.value === ''){
-        errorHandling(errorMessages.fill,'filling-error', messages);
-        e.preventDefault()
-    }
+        //CHECKING IF EVERY INPUT IS FILLED CORRECTLY
+        if(!(completeName.value === '' || cardNumber.value === '' || month.value === '' || year.value === '' || cvv.value === '')){
+            deletingErrors('filling-error')
+        }
+        else{
+            errorHandling(errorMessages.fill,'filling-error', messages);
+            e.preventDefault()
+        }
 
-    if((!isNaN(+completeName.value))){
-        errorHandling(errorMessages.name,'name-error', messages);
-        e.preventDefault()
-    }
+        //CHECKING IF NAME IS NOT A NUMBER
+        if((isNaN(+completeName.value))){
+        deletingErrors('name-error')
+        }
+        else{
+            errorHandling(errorMessages.name,'name-error', messages);
+            e.preventDefault()
+        }
 
-    if(cardNumber.value.length<16 || isNaN(+cardNumber.value)){
-        errorHandling(errorMessages.number,'card-error', messages);
-        e.preventDefault()
-    }
+        //CHECKING IF CONDITIONS FOR CARD NUMBER INPUT ARE CORRECT
+        if(!(cardNumber.value.length<16 || isNaN(+cardNumber.value))){
+            deletingErrors('card-error')
+        }
+        else{
+            errorHandling(errorMessages.number,'card-error', messages);
+            e.preventDefault()
+        }
 
-    if(cvv.value.length<3 || isNaN(+cvv.value)){
-        errorHandling(errorMessages.cvv,'cvv-error', messages)
-        e.preventDefault()
-    }
+        //CHECKING IF CONDITIONS FOR CVV INPUT ARE CORRECT
+        if(!(cvv.value.length<3 || isNaN(+cvv.value))){
+            deletingErrors('cvv-error')
+        }
+        else{
+            errorHandling(errorMessages.cvv,'cvv-error', messages)
+            e.preventDefault()
+        }
 
-    if(year.value.length<2 || month.value.length<2 || isNaN(+year.value) || isNaN(+month.value)){
-        errorHandling(errorMessages.date,'date-error', messages)
-        e.preventDefault()
-    }
-    /*else{
-        window.confirm('Details have been submitted!')
-    }*/
-
-    //Erasing correct values when executed again
-    const currentErrors = messages.map(el => {
-        return 
-    })
+        //CHECKING IF CONDITIONS FOR DATE INPUTS ARE CORRECT
+        if(!(year.value.length<2 || month.value.length<2 || isNaN(+year.value) || isNaN(+month.value))){
+            deletingErrors('date-error')
+        }
+        else{
+            errorHandling(errorMessages.date,'date-error', messages)
+            e.preventDefault()
+        }
     }
 );
 //Typing event listeners
@@ -71,8 +85,6 @@ year.addEventListener('keyup', copyText);
 cvv.addEventListener('keyup', copyText);
 
 //Copy text to card functions
-
-
 
 function copyText(){
     var cardOutput = document.getElementById('card-output')
